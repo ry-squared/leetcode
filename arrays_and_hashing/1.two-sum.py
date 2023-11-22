@@ -58,4 +58,12 @@
 #
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        
+        idxs = []
+        for idx1, num1 in enumerate(nums):
+            for idx2, num2 in enumerate(nums):
+                if idx2 > idx1:
+                    if num1 + num2 == target:
+                        if idx1 !=idx2:
+                            idxs = [idx1, idx2]
+                            return(idxs)
+        return([])
