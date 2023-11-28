@@ -55,6 +55,15 @@
 # 
 # 
 #
+from curses.ascii import isalpha
+
+
 class Solution:
     def isPalindrome(self, s: str) -> bool:
+        s_list = list(s)
+        s_new = ""
+        for l in s_list:
+            if l.isalnum():
+                s_new+=l.lower()
+        return s_new == s_new[::-1]
         
