@@ -7,4 +7,4 @@ echo "## Medium\n![$medium](https://progress-bar.dev/$medium/?scale=101&suffix=/
 echo "## Hard\n![$hard](https://progress-bar.dev/$hard/?scale=21&suffix=/21)" > 03_hard.md
 
 
-pandoc 01_easy.md 02_medium.md 03_hard.md -o README.md
+pandoc 01_easy.md 02_medium.md 03_hard.md 04_description.md -o README.md
