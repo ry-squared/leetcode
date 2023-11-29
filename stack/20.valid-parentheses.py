@@ -55,36 +55,28 @@
 #
 class Solution:
     def isValid(self, s: str) -> bool:
-        parens = {"(":")", 
-                  "[":"]", 
-                  "{":"}"}
-        
-        parens_status = {")":0,
-                         "]":0,
-                         "}":0}
-        
-        open_parens=["(", "[", "{"]
-        if s[0] not in open_parens:
-            return(False)
-        if len(s) <=1:
-            return(False)
-        stack = []
-        for p in range(0, len(list(s))-1):
-            curr_char = s[p]
-            next_char = s[p+1]
-            if (curr_char in open_parens):
-                stack.append(curr_char)
-                parens_status[parens[curr_char]]+=1
-                if (next_char not in open_parens) and (parens[curr_char]!=next_char):
+
+        paren_stack = []
+        open_parens = ["(", "[", "{"]
+        for i in range(len(s)):
+
+            if s[i] in open_parens:
+                paren_stack.append(s[i])
+            else:
+                if paren_stack ==[]:
                     return(False)
-            if (next_char not in open_parens):
-                if parens[stack[-1]] != next_char:
-                    return(False)
-                stack.pop()
-                parens_status[next_char]-=1
-        if s[-1] in open_parens:
-            return(False)
+                stack_top = paren_stack.pop()
+                if s[i]==")":
+                    if stack_top != "(":
+                        return(False)
+                if s[i]=="]":
+                    if stack_top != "[":
+                        return(False)
+                if s[i]=="}":
+                    if stack_top != "{":
+                        return(False)
         
-        if any([val!=0 for val in parens_status.values()]):
+        if len(paren_stack) > 0:
             return(False)
+            
         return(True)

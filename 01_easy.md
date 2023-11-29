@@ -1,3 +1,3 @@
 # Progress
 ## Easy
-![4](https://progress-bar.dev/4/?scale=28&suffix=/28)
+![5](https://progress-bar.dev/5/?scale=28&suffix=/28)
