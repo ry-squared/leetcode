@@ -56,40 +56,25 @@
 #         self.next = next
 
 
-# class Solution:
-#     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-
-
-#         if head == None:
-#             return(head)
-
-#         ln = ListNode(head.val, None)
-#         head_current = head
-#         while head_current.next != None:
-#             head_next = head_current.next
-#             ln = ListNode(val=head_next.val, next=ln)
-#             head_current = head_next
-#         return ln
-
-
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        # Initialize prev pointer as NULL...
-        ln_prev = None
-        # Initialize the curr pointer as the head...
-        head_current = head
-        # Run a loop till curr points to NULL...
-        while head_current:
-            # Initialize next pointer as the next pointer of curr...
-            head_next = head_current.next
-            # Now assign the prev pointer to curr’s next pointer.
-            ln_current = head_current
-            ln_current.next = ln_prev
-            # Assign curr to prev, next to curr...
-            ln_prev = head_current
-            head_current = head_next
-        return ln_prev       # Return the prev pointer to get the reverse linked list...
 
+        ll = None
+        ll_prev = None
+        head_current = head
+
+        # doesn't work; this updates head_current too
+        # ll = head_current
+        # ll.next = None
+
+        while head_current != None:
+            head_next = head_current.next
+            # ll = ListNode(val=head_current.val, next=ll)
+            ll = head_current
+            ll.next = ll_prev
+            ll_prev = ll
+            head_current = head_next #reassigns head_current w/ changing ll
+        return ll
 
 # Example ListNode
 #
