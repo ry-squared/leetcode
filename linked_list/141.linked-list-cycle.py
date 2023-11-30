@@ -71,3 +71,12 @@
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
         
+        curr = head        
+        nodes = {curr}
+        while curr:
+            next_id = curr.next
+            if next_id in nodes:
+                return(True)
+            nodes.add(next_id)
+            curr = curr.next
+        return(False)
