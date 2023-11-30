@@ -55,6 +55,32 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+
+
+
 class Solution:
-    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        
+    def mergeTwoLists(self, list1,list2):
+
+
+        llm = ListNode()
+        curr_llm = llm # curr_llm is pointer to llm
+        while list1!=None and list2!=None:
+
+            if list1.val < list2.val:
+                curr_llm.next = list1 # assign next link in curr_llm to list1, also upates llm.next
+                list1 = list1.next  # assign next link in list1 to list 1, basically popping the head off
+            else:
+                curr_llm.next = list2 # similar to above
+                list2 = list2.next
+
+            # re-assign next curr_llm to next link in curr_llm, i.e. a new memory address
+            # next time we modify curr_llm the next link in llm is modified
+            curr_llm = curr_llm.next
+
+        # add leftover list
+        if list1==None:
+            curr_llm.next = list2
+        else:
+            curr_llm.next = list1
+
+        return(llm.next)

@@ -73,7 +73,7 @@ class Solution:
             ll = head_current
             ll.next = ll_prev
             ll_prev = ll
-            head_current = head_next #reassigns head_current w/ changing ll
+            head_current = head_next #reassigns head_current w/o changing ll
         return ll
 
 # Example ListNode
@@ -83,7 +83,3 @@ class Solution:
 #          self.val = val
 #          self.next = next
 # ListNode(val=1, next=ListNode(val=2, next=ListNode(val=3, next=ListNode(val=4, next=ListNode(val=5, next=None)))))
-
-
-# ListNode(val=1, next=ListNode(val=2, next=ListNode(val=3, next=ListNode(val=4, next=ListNode(val=5, next=None)))))
-
