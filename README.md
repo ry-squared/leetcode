@@ -2,7 +2,7 @@
 
 ## Easy
 
-![9](https://progress-bar.dev/9/?scale=28&suffix=/28)
+![10](https://progress-bar.dev/10/?scale=28&suffix=/28)
 
 ## Medium
 

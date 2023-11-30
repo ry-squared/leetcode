@@ -50,6 +50,25 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+
+
+        def traverse_tree(root):
+
+            if root!= None:
+                root_right = traverse_tree(root.right)
+                root_left = traverse_tree(root.left)
+
+                root.left = root_right
+                root.right = root_left
+            return(root)
+            # return(root)
+
+
+
+        return(traverse_tree(root))
+
+
         
