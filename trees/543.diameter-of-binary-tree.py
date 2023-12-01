@@ -51,6 +51,28 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
 class Solution:
-    def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+    def __init__(self):
+        self.max_dist = 0
+        self.max_depth = 0
+
+    def traverse_tree(self, root):
+    
+        if root!=None:
+            l_depth = self.traverse_tree(root.left)
+            r_depth = self.traverse_tree(root.right)
+
+            if l_depth + r_depth > self.max_dist:
+                self.max_dist = l_depth + r_depth
+
+            self.max_depth = max(l_depth, r_depth) + 1
+            
+            return (self.max_depth)
+        else:
+            return 0
+
+    def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:        
+        self.traverse_tree(root)
+        return(self.max_dist)
         
