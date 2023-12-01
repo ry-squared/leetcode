@@ -54,9 +54,8 @@
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
 
-
         def traverse_tree(root):
-
+            
             if root!= None:
                 root_right = traverse_tree(root.right)
                 root_left = traverse_tree(root.left)
@@ -64,9 +63,6 @@ class Solution:
                 root.left = root_right
                 root.right = root_left
             return(root)
-            # return(root)
-
-
 
         return(traverse_tree(root))
 

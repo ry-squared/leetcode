@@ -48,4 +48,20 @@
 #         self.right = right
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
+
+        current_depth = 0
+        # DFS
+        def traverse_tree(root, current_depth):
+
+            if root!= None:
+                current_depth+=1
+                l_depth = traverse_tree(root.left,  current_depth)
+                r_depth = traverse_tree(root.right,  current_depth)
+                return(max(l_depth, r_depth))
+
+            return(current_depth)
+            
+            
+        return(traverse_tree(root, current_depth))
+
         
