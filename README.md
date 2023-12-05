@@ -2,7 +2,7 @@
 
 ## Easy
 
-![12](https://progress-bar.dev/12/?scale=28&suffix=/28)
+![13](https://progress-bar.dev/13/?scale=28&suffix=/28)
 
 ## Medium
 
@@ -20,7 +20,7 @@
 -   [neetcode list in full](https://leetcode.com/list/rr2ss0g5/)
 -   [neetcode list as .txt](neetcode.txt)
 
-# Getting Started
+# Getting Started:
 
 Intalll (unofficial) leetcode CLI
 
@@ -38,7 +38,13 @@ Download plugins
     leetcode plugin -i cookie.chrome
     leetcode plugin -e cookie.chrome
 
-## Example Commands
+## Project Commands:
+
+calculate completions stats
+
+    ./scripts/stats.sh
+
+## Leetcode Commands:
 
 Show problem:
 

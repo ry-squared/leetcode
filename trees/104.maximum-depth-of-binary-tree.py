@@ -47,21 +47,46 @@
 #         self.left = left
 #         self.right = right
 class Solution:
+    # def maxDepth(self, root: Optional[TreeNode]) -> int:
+
+    #     current_depth = 0
+    #     # DFS
+    #     def traverse_tree(root, current_depth):
+
+    #         if root!= None:
+    #             current_depth+=1
+    #             l_depth = traverse_tree(root.left,  current_depth)
+    #             r_depth = traverse_tree(root.right,  current_depth)
+    #             return(max(l_depth, r_depth))
+
+    #         return(current_depth)
+            
+            
+    #     return(traverse_tree(root, current_depth))
+    
+
+
+    # def __init__(self):
+    #     self.max_depth= 0
+    
+    # max_depth is local variable within each funciton call
+    def traverse_tree(self, root, max_depth=0):
+        
+       if root != None:
+            max_depth+=1
+            l_depth = self.traverse_tree(root.left, max_depth)
+            r_depth = self.traverse_tree(root.right, max_depth)
+            max_depth = max(l_depth, r_depth)
+            return max_depth
+       
+       else:
+           return(max_depth)
+       
     def maxDepth(self, root: Optional[TreeNode]) -> int:
 
-        current_depth = 0
-        # DFS
-        def traverse_tree(root, current_depth):
+        self.traverse_tree(root)
 
-            if root!= None:
-                current_depth+=1
-                l_depth = traverse_tree(root.left,  current_depth)
-                r_depth = traverse_tree(root.right,  current_depth)
-                return(max(l_depth, r_depth))
+        return(self.traverse_tree(root))
 
-            return(current_depth)
-            
-            
-        return(traverse_tree(root, current_depth))
 
         

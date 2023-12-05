@@ -50,6 +50,33 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
 class Solution:
+
+    def __init__(self):
+        self.balanced = True
+
+    def traverse_tree(self, root, max_depth=0):
+       
+        
+       if root!=None and self.balanced==True:
+            max_depth+=1
+            l_depth = self.traverse_tree(root.left, max_depth)
+            r_depth = self.traverse_tree(root.right, max_depth)
+            dist_diff = abs(l_depth - r_depth)
+            if dist_diff > 1:
+                self.balanced=False
+            max_depth = max(l_depth, r_depth)
+            return max_depth
+       else:
+            return(max_depth)
+
+
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
+
+        self.traverse_tree(root)
+
+        return(self.balanced)
+        
+
         

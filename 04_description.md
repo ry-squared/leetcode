@@ -7,7 +7,7 @@
 * [neetcode list as .txt](neetcode.txt)
 
 
-# Getting Started
+# Getting Started:
 Intalll (unofficial) leetcode CLI
 ```
 # v8 node seems to be supported
@@ -25,7 +25,13 @@ Download plugins
 leetcode plugin -i cookie.chrome
 leetcode plugin -e cookie.chrome
 ```
-## Example Commands
+## Project Commands:
+
+calculate completions stats
+```
+./scripts/stats.sh
+```
+## Leetcode Commands:
 
 Show problem:
 ```
