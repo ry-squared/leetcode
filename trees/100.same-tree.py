@@ -55,5 +55,24 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+
+    def __init__(self):
+        self.is_same=True
+
+    def traverse_tree(self, p, q):
         
+        if p and q:
+            if p.val != q.val:
+                self.is_same = False
+            self.traverse_tree(p.left, q.left)
+            self.traverse_tree(p.right, q.right)
+                
+        if (p and not q) or (q and not p):
+            self.is_same = False
+
+        return(self.is_same)        
+        
+
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+
+        return(self.traverse_tree(p,q))
