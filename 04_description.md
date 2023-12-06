@@ -33,6 +33,11 @@ calculate completions stats
 ```
 ## Leetcode Commands:
 
+Login:
+```
+leetcode user -l
+```
+
 Show problem:
 ```
 leetcode show 217

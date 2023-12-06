@@ -52,5 +52,39 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
+
+    def sameTree(self, p, q):
+
+        if (p and q is None) or (p is None and q):
+            return False
         
+        if not p and not q:
+            return True
+
+        if p and q:
+            if p.val != q.val:
+                return False
+            else:
+                l_match = self.sameTree(p.left, q.left)
+                r_match = self.sameTree(p.right, q.right)
+                return l_match and r_match    
+            
+    def traverse_tree(self, root, subTree):
+        
+        trees_match = self.sameTree(root, subTree)
+
+        if trees_match:
+            return True
+        else:
+            if root:
+                l_match = self.traverse_tree(root.left, subTree)
+                r_match = self.traverse_tree(root.right, subTree)
+                return l_match or r_match
+            else:
+                return False
+
+    def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
+        subtree_match = self.traverse_tree(root, subRoot)
+        return(subtree_match)
+    
+

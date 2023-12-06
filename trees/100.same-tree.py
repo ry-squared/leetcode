@@ -56,22 +56,22 @@
 #         self.right = right
 class Solution:
 
-    def __init__(self):
-        self.is_same=True
-
     def traverse_tree(self, p, q):
-        
-        if p and q:
-            if p.val != q.val:
-                self.is_same = False
-            self.traverse_tree(p.left, q.left)
-            self.traverse_tree(p.right, q.right)
-                
-        if (p and not q) or (q and not p):
-            self.is_same = False
 
-        return(self.is_same)        
-        
+        if p!=None and q!=None:
+            if p.val == q.val:
+                l_match = self.traverse_tree(p.left, q.left)
+                r_match = self.traverse_tree(p.right, q.right)
+                return l_match and r_match
+            else:
+                return False
+
+        elif p!=None and q==None:
+            return False
+        elif p==None and q!=None:
+            return False
+        elif p==None and q==None:
+            return True
 
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
 

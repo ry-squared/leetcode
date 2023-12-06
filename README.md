@@ -2,7 +2,7 @@
 
 ## Easy
 
-![14](https://progress-bar.dev/14/?scale=28&suffix=/28)
+![16](https://progress-bar.dev/16/?scale=28&suffix=/28)
 
 ## Medium
 
@@ -45,6 +45,10 @@ calculate completions stats
     ./scripts/stats.sh
 
 ## Leetcode Commands:
+
+Login:
+
+    leetcode user -l
 
 Show problem:
 
