@@ -56,13 +56,21 @@
 # 
 # 
 #
+
 class KthLargest:
 
     def __init__(self, k: int, nums: List[int]):
-        
+        self.k = k
+        self.nums = nums
+        heapq.heapify(self.nums) # self.nums is now abstract heap object
 
     def add(self, val: int) -> int:
-        
+        heapq.heappush(self.nums,val)
+
+        while len(self.nums) > self.k:
+            heapq.heappop(self.nums) # pops the smallest only
+
+        return self.nums[0] # smallest always at index 0; don't pop in case needed next add
 
 
 # Your KthLargest object will be instantiated and called as such:
