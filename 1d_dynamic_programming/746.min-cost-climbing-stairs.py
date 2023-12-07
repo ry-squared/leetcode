@@ -55,4 +55,15 @@
 #
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
+
+        a = cost[0]
+        b = cost[1]
+
+        for c in cost[2:]:
+            c_min=min(a,b) + c
+            a = b
+            b = c_min
         
+        c_min=min(a,b)
+
+        return c_min
