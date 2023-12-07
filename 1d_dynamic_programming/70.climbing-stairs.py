@@ -46,6 +46,24 @@
 # 
 # 
 #
+
+# exploit fibonacci sequence, each number of ways for n is sum of previous 2 num paths
 class Solution:
     def climbStairs(self, n: int) -> int:
+
+        i_curr = 0
+        i_prev = 2
+        i_prev_prev=1
+
+        if n == 1:
+            return(i_prev_prev)
+        if n ==2:
+            return(i_prev)
+
+        for i in range(2, n):
+
+            i_curr = i_prev + i_prev_prev
+            i_prev_prev = i_prev
+            i_prev = i_curr
         
+        return(i_curr)
