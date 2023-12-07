@@ -6,9 +6,9 @@
 # https://leetcode.com/problems/jump-game/description/
 #
 # algorithms
-# Medium (38.58%)
+# Medium (38.57%)
 # Total Accepted:    1.6M
-# Total Submissions: 4.2M
+# Total Submissions: 4.3M
 # Testcase Example:  '[2,3,1,1,4]'
 #
 # You are given an integer array nums. You are initially positioned at the

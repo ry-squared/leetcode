@@ -6,7 +6,7 @@
 # https://leetcode.com/problems/plus-one/description/
 #
 # algorithms
-# Easy (44.44%)
+# Easy (44.50%)
 # Total Accepted:    2M
 # Total Submissions: 4.4M
 # Testcase Example:  '[1,2,3]'

@@ -6,7 +6,7 @@
 # https://leetcode.com/problems/number-of-islands/description/
 #
 # algorithms
-# Medium (58.07%)
+# Medium (58.12%)
 # Total Accepted:    2.4M
 # Total Submissions: 4.1M
 # Testcase Example:  '[["1","1","1","1","0"],["1","1","0","1","0"],["1","1","0","0","0"],["0","0","0","0","0"]]'

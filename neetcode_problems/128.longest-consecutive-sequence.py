@@ -6,9 +6,9 @@
 # https://leetcode.com/problems/longest-consecutive-sequence/description/
 #
 # algorithms
-# Medium (47.41%)
-# Total Accepted:    1.4M
-# Total Submissions: 3M
+# Medium (47.40%)
+# Total Accepted:    1.5M
+# Total Submissions: 3.1M
 # Testcase Example:  '[100,4,200,1,3,2]'
 #
 # Given an unsorted array of integers nums, return the length of the longest

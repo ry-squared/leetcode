@@ -6,7 +6,7 @@
 # https://leetcode.com/problems/missing-number/description/
 #
 # algorithms
-# Easy (64.38%)
+# Easy (64.46%)
 # Total Accepted:    1.8M
 # Total Submissions: 2.8M
 # Testcase Example:  '[3,0,1]'

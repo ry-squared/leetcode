@@ -6,8 +6,8 @@
 # https://leetcode.com/problems/edit-distance/description/
 #
 # algorithms
-# Medium (55.65%)
-# Total Accepted:    754.8K
+# Medium (55.70%)
+# Total Accepted:    761.7K
 # Total Submissions: 1.4M
 # Testcase Example:  '"horse"\n"ros"'
 #

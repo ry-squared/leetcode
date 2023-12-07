@@ -6,8 +6,8 @@
 # https://leetcode.com/problems/gas-station/description/
 #
 # algorithms
-# Medium (45.73%)
-# Total Accepted:    692.1K
+# Medium (45.70%)
+# Total Accepted:    700K
 # Total Submissions: 1.5M
 # Testcase Example:  '[1,2,3,4,5]\n[3,4,5,1,2]'
 #

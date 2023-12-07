@@ -6,9 +6,9 @@
 # https://leetcode.com/problems/subsets/description/
 #
 # algorithms
-# Medium (76.47%)
-# Total Accepted:    1.6M
-# Total Submissions: 2.1M
+# Medium (76.54%)
+# Total Accepted:    1.7M
+# Total Submissions: 2.2M
 # Testcase Example:  '[1,2,3]'
 #
 # Given an integer array nums of unique elements, return all possible subsets

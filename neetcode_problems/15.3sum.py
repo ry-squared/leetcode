@@ -6,9 +6,9 @@
 # https://leetcode.com/problems/3sum/description/
 #
 # algorithms
-# Medium (33.59%)
+# Medium (33.66%)
 # Total Accepted:    3.1M
-# Total Submissions: 9.2M
+# Total Submissions: 9.3M
 # Testcase Example:  '[-1,0,1,2,-1,-4]'
 #
 # Given an integer array nums, return all the triplets [nums[i], nums[j],

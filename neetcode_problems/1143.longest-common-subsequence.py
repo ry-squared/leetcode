@@ -6,8 +6,8 @@
 # https://leetcode.com/problems/longest-common-subsequence/description/
 #
 # algorithms
-# Medium (57.57%)
-# Total Accepted:    846.7K
+# Medium (57.56%)
+# Total Accepted:    856.1K
 # Total Submissions: 1.5M
 # Testcase Example:  '"abcde"\n"ace"'
 #

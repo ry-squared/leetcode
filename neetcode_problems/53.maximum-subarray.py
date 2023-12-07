@@ -6,7 +6,7 @@
 # https://leetcode.com/problems/maximum-subarray/description/
 #
 # algorithms
-# Medium (50.44%)
+# Medium (50.46%)
 # Total Accepted:    3.5M
 # Total Submissions: 7M
 # Testcase Example:  '[-2,1,-3,4,-1,2,1,-5,4]'
