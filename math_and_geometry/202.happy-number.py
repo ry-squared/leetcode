@@ -56,3 +56,14 @@
 class Solution:
     def isHappy(self, n: int) -> bool:
         
+        while n!=1:
+
+            # can use floyd's cycle finding algo or just hard code
+            # 4→16→37→58→89→145→42→20→4
+            if n==4:
+                return(False)
+            ns = list(str(n))
+            n = sum([int(m)**2 for m in ns])
+
+        return(True)
+
