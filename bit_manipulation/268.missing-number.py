@@ -60,6 +60,22 @@
 # complexity and O(n) runtime complexity?
 # 
 #
+import heapq
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
         
+        n=len(nums)
+        
+        nums=sorted(nums)
+
+        if nums[0]!=0:
+            return(0)
+        
+        if nums[-1]!=n:
+            return(n)
+        
+        for i in range(n-1):
+            if nums[i+1]-nums[i]==2:
+                return(nums[i]+1)
+            
+        return(nums[-1] + 1)
