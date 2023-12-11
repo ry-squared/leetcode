@@ -59,4 +59,9 @@
 #
 class Solution:
     def reverseBits(self, n: int) -> int:
+
+        # trivial solution
+        bin_num = bin(n)[2:]
+        bin_num = "0"*(32-len(bin_num)) + bin_num
         
+        return(int(bin_num[::-1],2))
