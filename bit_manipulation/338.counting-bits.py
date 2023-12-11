@@ -62,3 +62,32 @@
 class Solution:
     def countBits(self, n: int) -> List[int]:
         
+        # dynamic programming
+        bit_counts = list(range(n+1))
+        bit_counts[0]=0
+        for i in range(1,n+1):
+            bit_counts[i]=bit_counts[i&(i-1)]+1
+        return bit_counts
+
+
+        # counting for each i in N using efficient counting
+        # def count_bits(n):
+        #     count_bits = 0
+        #     while n !=0:
+        #         n=n&(n-1) #pop least significant 1 bit until all 0s
+        #         count_bits+=1
+        #     return(count_bits)
+        
+
+        # bit_counts = []
+        # for i in range(n+1):
+        #     bit_counts.append(count_bits(i))
+        # return(bit_counts)
+            
+        # trivial solution
+        # bit_counts = []
+        # for i in range(n+1):
+        #     bit_counts.append(i.bit_count())
+
+        # return bit_counts
+        

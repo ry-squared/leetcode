@@ -68,14 +68,23 @@
 class Solution:
     def hammingWeight(self, n: int) -> int:
 
-        mask = 1
         bit_count = 0
-        for i in range(32):
-            if mask&n != 0:
-                bit_count+=1
-            mask=mask<<1
+        while n!=0:
+            n=n&(n-1)
+            bit_count+=1
         return(bit_count)
 
+
+        # brute force lookin at all bits:
+        # mask = 1
+        # bit_count = 0
+        # for i in range(32):
+        #     if mask&n != 0:
+        #         bit_count+=1
+        #     mask=mask<<1
+        # return(bit_count)
+
+        # trival solutions:
         # return(bin(n).count('1'))
         # return(n.bit_count())
         # return(sum([int(i) for i in list(str(bin(n))[2:])]))
