@@ -41,4 +41,12 @@
 #
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        
+        strs_grouped = dict()
+        for s in strs:
+            s_sorted = "".join(sorted(s))
+            if s_sorted not in strs_grouped:
+                strs_grouped[s_sorted]=[s]
+            else:
+                strs_grouped[s_sorted].append(s)
+
+        return(list(strs_grouped.values()))
