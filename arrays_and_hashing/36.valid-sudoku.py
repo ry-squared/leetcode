@@ -76,6 +76,29 @@
 # 
 # 
 #
+from collections import Counter, defaultdict
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         
+        row_checker = defaultdict(Counter)
+        col_checker = defaultdict(Counter)
+        square_checker = defaultdict(Counter)
+
+        for row_idx, row in enumerate(board):
+            for col_idx, num in enumerate(row):
+                
+                if num==".":
+                    continue
+
+                square_idx = 3*(row_idx//3) + col_idx//3
+
+                row_checker[row_idx][num]+=1
+                col_checker[col_idx][num]+=1
+                square_checker[square_idx][num]+=1
+
+                if row_checker[row_idx][num]>1 or \
+                    col_checker[col_idx][num]>1 or \
+                    square_checker[square_idx][num]>1:
+                    return(False)
+                
+        return(True)
