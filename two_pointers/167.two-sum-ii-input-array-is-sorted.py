@@ -64,6 +64,30 @@
 # 
 # 
 #
+from collections import defaultdict
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        i=0
+        j=len(numbers)-1
         
+        while j > i:
+            lo=numbers[i]
+            hi=numbers[j]
+            total=hi+lo
+            if total==target:
+                return [i+1,j+1]
+            if total < target:
+                i+=1
+            if total>target:
+                j-=1
+
+        # default hash method
+        # num_hash = defaultdict()
+
+        # for i, num in enumerate(numbers):
+
+        #     if num in num_hash:
+        #         return([num_hash[num]+1, i+1])
+            
+        #     complement = target - num
+        #     num_hash[complement] = i

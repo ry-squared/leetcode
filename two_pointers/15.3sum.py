@@ -57,6 +57,40 @@
 # 
 # 
 #
+from collections import defaultdict
 class Solution:
+    def twoSum(self, nums, target=0):
+        i=0
+        j=len(nums)-1
+        result = set()
+        while i<j:
+            lo=nums[i]
+            hi=nums[j]
+            if target + lo + hi == 0:
+                r = target, lo, hi
+                result.add(r)
+            if target + lo + hi < 0:
+                i+=1
+            else:
+                j-=1
+        return(result)
+    
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        
+
+        nums = sorted(nums)
+        result_total = set()
+        num_prev = nums[0]-1
+        for i in range(len(nums)):
+            if nums[i]>0 or nums[i] == num_prev:
+                num_prev=nums[i]
+                continue
+            else:
+                num_prev=nums[i]
+            result = self.twoSum(nums[i+1:], target=nums[i])
+            if result:
+                result_total.update(result)
+        return(result_total)
+
+            
+
+
