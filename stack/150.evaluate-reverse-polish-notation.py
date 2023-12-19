@@ -71,6 +71,31 @@
 # 
 # 
 #
+import math
+
+
 class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
-        
+
+        operators = {"+", "-", "*", "/"}
+        stack = []
+
+        for tok in tokens:
+            stack.append(tok)
+            if stack[-1] in operators:
+                op = stack.pop()
+                b=int(stack.pop())
+                a=int(stack.pop())
+
+                if op == "+":
+                    c = a+b
+                elif op == "-":
+                    c = a-b
+                elif op=="/":
+                    c = math.trunc(a/b)
+                else:
+                    c=a*b
+                
+                stack.append(c)
+                
+        return int(stack.pop())
