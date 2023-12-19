@@ -46,6 +46,33 @@
 # 
 # 
 #
+# from collections import Counter
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
-        
+
+
+
+        # slow but intuitiive O(m*N) where m is up to 26 letters, N is len(s)
+        letters = set(s)
+        max_count = 0
+
+        for l in letters:
+            r_count=0
+            i=0
+            for j in range(len(s)):
+                if s[j]!=l:
+                    r_count+=1
+                    if r_count > k:
+                        while r_count > k:
+                            if s[i]!=l:
+                                r_count-=1
+                            i+=1
+
+                l_count = j-i+1
+                max_count = max(max_count, l_count)
+
+        return max_count
+                
+                    
+
+            
