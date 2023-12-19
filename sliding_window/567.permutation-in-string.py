@@ -42,6 +42,26 @@
 # 
 # 
 #
+from collections import Counter
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
+
+
+        #idea: find same length windows where frequencies of letters are the same
+        i = 0
+        j = len(s1)
+        s1_freq = Counter(s1)
+        s2_freq = Counter(s2[i:j])
+
+        while j<len(s2):
+            if s1_freq == s2_freq:
+                return True
+            s2_freq[s2[i]]-=1
+            s2_freq[s2[j]]+=1
+            i+=1
+            j+=1
         
+        if s1_freq == s2_freq:
+            return True
+        
+        return False

@@ -1,2 +1,2 @@
 ## Medium
-![14](https://progress-bar.dev/14/?scale=101&suffix=/101)
+![15](https://progress-bar.dev/15/?scale=101&suffix=/101)

@@ -50,7 +50,8 @@
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
 
-
+        # TODO
+        #fast solution
 
         # slow but intuitiive O(m*N) where m is up to 26 letters, N is len(s)
         letters = set(s)
