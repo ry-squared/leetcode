@@ -52,9 +52,11 @@ class Solution:
             current_temp = temperatures[current_idx]
             next_temp = temperatures[next_idx]
 
-            # all idx, temps get added to stack
+            # all idx, temps get added to stack in order 
             idxs_temps_stack.append((current_idx, current_temp))
 
+            # stack is popped up until current temp is not larger than next temp
+            # there will never be a smaller temp hiding before a larger temp since they are immediately popped!
             while next_temp > current_temp:
                 current_idx, _ = idxs_temps_stack.pop()
                 offsets[current_idx] = next_idx - current_idx

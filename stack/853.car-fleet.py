@@ -82,6 +82,21 @@
 # 
 # 
 #
+from operator import truediv
+
+
 class Solution:
     def carFleet(self, target: int, position: List[int], speed: List[int]) -> int:
-        
+
+        time_to_target = [(target-p)/s for p,s in list(zip(position, speed))]
+        time_to_target = [t for t,p in  sorted(zip(time_to_target, position), key=lambda x: x[1], reverse=True)]
+
+        fleet_counts=1
+        bottleneck_car_time = time_to_target[0]
+        for t in range(1,len(time_to_target)):
+            car_behind_time = time_to_target[t]
+            if car_behind_time > bottleneck_car_time:
+                fleet_counts+=1
+                bottleneck_car_time = car_behind_time
+
+        return fleet_counts
