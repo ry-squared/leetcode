@@ -36,6 +36,28 @@
 # 
 # 
 #
+from math import inf
 class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
-        
+
+        idxs_temps_stack = []
+
+        offsets = [0]*len(temperatures)
+
+        for i in range(len(temperatures)-1):
+
+            current_idx = i
+            next_idx = i+1
+
+            current_temp = temperatures[current_idx]
+            next_temp = temperatures[next_idx]
+
+            # all idx, temps get added to stack
+            idxs_temps_stack.append((current_idx, current_temp))
+
+            while next_temp > current_temp:
+                current_idx, _ = idxs_temps_stack.pop()
+                offsets[current_idx] = next_idx - current_idx
+                current_temp = (idxs_temps_stack[-1][1] if idxs_temps_stack else inf)
+
+        return offsets
