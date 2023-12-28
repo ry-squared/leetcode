@@ -57,6 +57,42 @@
 # 
 # 
 #
+import math
 class Solution:
-    def minEatingSpeed(self, piles: List[int], h: int) -> int:
+
+    def calculate_hours(self, k, piles):
+        return sum([math.ceil(p/k) for p in piles])
+
+    def leftmost_descending_binary_search(self, target, piles):
+        # abstract array with idxs that represent k
+        # values of array represent hours of banana eating
+        # e.g. piles = [3,6,7,11] and h=8
+        # idxs k and hours from calculate_hours function
+        # k = [1,  2,  3,  4, 5, 6, 7, 8, 9, 10, 11]
+        # h = [27, 15, 10, 8, 8, 6, 5, 5, 5,  5,  4]
+        #i=0,l=1,r=11,m=6,mid_num=6 <= target
+        #i=1,l=1,r=6,m=3,mid_num=10 > target
+        #i=2,l=4,r=6,m=5,mid_num=8 <= target
+        #i=3,l=4,r=5,m=4,mid_num=8 <= target
+        # r-> 4 and fin
+        # leftmost k, i.e. smallest k where target matches is k=4,h=8
+        l=1
+        r=max(piles)
+        m=(l+r)//2
         
+        while l<r:
+
+            mid_num = self.calculate_hours(m, piles)
+
+            if mid_num > target:
+                l=m+1
+            elif mid_num <= target:
+                r=m
+
+            m=(l+r)//2
+
+        return l
+
+    def minEatingSpeed(self, piles: List[int], h: int) -> int:
+
+        return self.leftmost_descending_binary_search(target=h, piles=piles)
