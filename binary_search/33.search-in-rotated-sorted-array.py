@@ -49,5 +49,39 @@
 # 
 #
 class Solution:
+
+    def binary_search(self, nums, target, l, r):
+        # normal binary search
+        while l <= r:
+            m=(l+r)//2
+            if nums[m] == target:
+                return m
+            elif nums[m] < target:
+                l=m+1
+            else:
+                r=m-1
+        return -1
+    
+    def leftmost_binary_pivot_search(self, nums):
+        # find boundary, i.e. smallest num
+        l=0
+        r=len(nums)-1
+        m=(l+r)//2
+        while l < r:
+            if nums[-1] < nums[m]:
+                l=m+1
+            else:
+                r=m
+            m=(l+r)//2
+        return l
+
+        
     def search(self, nums: List[int], target: int) -> int:
         
+        pivot_idx = self.leftmost_binary_pivot_search(nums)
+        l_result = self.binary_search(nums, target, l=0, r=pivot_idx)
+        r_result = self.binary_search(nums, target, l=pivot_idx, r=len(nums)-1)
+
+        result = max(l_result, r_result)
+
+        return result

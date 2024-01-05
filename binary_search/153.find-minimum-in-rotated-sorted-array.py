@@ -69,4 +69,24 @@
 #
 class Solution:
     def findMin(self, nums: List[int]) -> int:
+
+        l=0
+        r=len(nums)-1
+        m=(l+r)//2
+
+        while l<r:
+
+            if nums[r] >= nums[l]:
+                return nums[l]
+            
+            mid_num = nums[m]
+            r_num = nums[r]
+
+            if mid_num > r_num:
+                l=m+1
+            else:
+                r=m
+            m=(l+r)//2
+
+        return nums[l]
         
