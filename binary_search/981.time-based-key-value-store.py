@@ -64,16 +64,44 @@
 # 
 # 
 #
+from collections import defaultdict
 class TimeMap:
 
     def __init__(self):
+        self.d = defaultdict(list)
+
+    def rightmost_binary_search(self, nums, target):
+        l=0
+        r=len(nums)
+        m=(l+r)//2
+
+        while l<r:
+
+            m=(l+r)//2
+            if nums[m][0] <= target:
+                l=m+1
+            else:
+                r=m
+
+        return nums[r-1]
         
 
     def set(self, key: str, value: str, timestamp: int) -> None:
+        self.d[key].append((timestamp, value))
         
-
     def get(self, key: str, timestamp: int) -> str:
+
+        if not (key in self.d):
+            return ""
         
+        ts_values = self.d[key]
+
+        result = self.rightmost_binary_search(ts_values, timestamp)
+
+        if result[0] <= timestamp:
+            return result[1]
+        else:
+            return ""
 
 
 # Your TimeMap object will be instantiated and called as such:
