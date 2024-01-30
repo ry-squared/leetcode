@@ -58,8 +58,11 @@
 #         self.next = next
 from ast import List
 class Solution:
-    # Q: are 2 node objects that are the same but have diff children equal?
-
+    # Q: are 2 node objects that are the same but have diff children equal in python?
+    # a = ListNode(val=1, next=ListNode(val=2, next=ListNode(val=3, next=ListNode(val=4, next=ListNode(val=5, next=None)))))
+    # b = copy.deepcopy(a)
+    # assert a == b
+    
     #alternate nodes from head node forward and last node working backwords until reaching midpoint
 
     def getMidPoint(self, head: ListNode) -> ListNode:
