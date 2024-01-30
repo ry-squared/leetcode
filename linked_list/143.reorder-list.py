@@ -58,50 +58,52 @@
 #         self.next = next
 from ast import List
 class Solution:
+    # Q: are 2 node objects that are the same but have diff children equal?
 
-    def getListMidpoint(self, head: ListNode) -> ListNode:
-        # find the middle of linked list [Problem 876]
-        # in 1->2->3->4->5->6 find 4
-        slow_head = head
-        fast_head = head
-        while fast_head and fast_head.next:
-            slow_head = slow_head.next
-            fast_head = fast_head.next.next 
-        return slow_head
-    
+    #alternate nodes from head node forward and last node working backwords until reaching midpoint
+
+    def getMidPoint(self, head: ListNode) -> ListNode:
+        slow = head
+        fast = head
+        while fast and fast.next: # fast.next.next would prematurely terminate on None, whereas we want the last real node
+            slow = slow.next
+            fast = fast.next.next
+        return slow
+
     def reverseList(self, head: ListNode) -> ListNode:
-        # reverse the second part of the list [Problem 206]
-        # convert 1->2->3->4->5->6 into 1->2->3->4 and 6->5->4
-        # reverse the second half in-place
-        prev_head = None
-        curr_head = head
-        while curr_head:
-            next_head = curr_head.next
-
-            curr_head.next = prev_head
-            prev_head = curr_head
+        prev = None
+        cur = head
+        while cur:
             
-            curr_head = next_head
+            nxt = cur.next # tmp var
+            cur.next = prev
+            prev = cur
+            cur = nxt
 
-        return prev_head
+        return prev
 
-    def mergeLists(self, head: ListNode, rev_second: ListNode) -> ListNode:
-        # merge two sorted linked lists [Problem 21]
-        # merge 1->2->3->4 and 6->5->4 into 1->6->2->5->3->4
-        first = head
-        second =  rev_second
-        while second.next:
 
-            first_next = first.next # temp var
-            first.next = second
-            first = first_next # reset with temp var
+    def mergeList(self, head: ListNode, reversedSecondList: ListNode) -> None:
 
-            second_next = second.next # temp var
-            second.next = first
-            second = second_next # reset with temp var
+        firstListCur = head
+        secondListCur = reversedSecondList
+
+        while secondListCur.next:
+            
+            # add second list head to first list
+            firstListNext = firstListCur.next # tmp var
+            firstListCur.next = secondListCur
+
+            # add next node in first list after attached node in second list
+            secondListNext = secondListCur.next
+            secondListCur.next = firstListNext
+
+            # reset lists to next nodes
+            firstListCur = firstListNext
+            secondListCur = secondListNext
 
     def reorderList(self, head: ListNode) -> None:
 
-        second=self.getListMidpoint(head=head)
-        second_rev=self.reverseList(head=second)
-        self.mergeLists(head=head,rev_second=second_rev)
+        midNode = self.getMidPoint(head=head)
+        reversedSecondList = self.reverseList(head=midNode)
+        self.mergeList(head=head,reversedSecondList=reversedSecondList)
