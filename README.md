@@ -6,7 +6,7 @@
 
 ## Medium
 
-![25](https://progress-bar.dev/25/?scale=101&suffix=/101)
+![26](https://progress-bar.dev/26/?scale=101&suffix=/101)
 
 ## Hard
 
